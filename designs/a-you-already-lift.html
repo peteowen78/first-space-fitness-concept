@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>First Space — direction A, You Already Lift (concept)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FFF2DD; --paper:#FFF9EE; --ink:#21160F; --soft:#5A4636;
+  --red:#D12F14; --red-deep:#A8230C; --sun:#FFC83D; --brick:#F0892F; --line:#E8D5B5;
+  --disp:"Bricolage Grotesque",system-ui,sans-serif; --body:Onest,system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+h1,h2,h3{font-family:var(--disp);font-weight:800;letter-spacing:-.03em;line-height:.98;margin:0;text-wrap:balance}
+h2{font-size:clamp(2.1rem,5vw,3.6rem)}
+p{margin:0 0 1em}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.mark{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:800 1.5rem/1 var(--disp);letter-spacing:-.04em}
+.mark b{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--red);color:#fff;font-size:1.2rem;transform:rotate(-6deg)}
+.mark span{color:var(--red)}
+.nav{display:flex;gap:26px;align-items:center;font-weight:600}
+.nav a:not(.btn){text-decoration:none;padding:6px 0;background:linear-gradient(var(--sun),var(--sun)) 0 100%/0 6px no-repeat;transition:background-size .35s var(--ease)}
+.nav a:not(.btn):hover{background-size:100% 6px}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 1.05rem/1 var(--body);text-decoration:none;padding:17px 26px;border-radius:999px;background:var(--red);color:#fff;border:0;box-shadow:0 10px 22px -14px rgba(33,22,15,.8);transition:transform .3s var(--ease),background .2s}
+.btn:hover{background:var(--red-deep);transform:translateY(-2px) rotate(-1deg)}
+.btn.alt{background:var(--ink);color:var(--cream);box-shadow:0 10px 22px -14px rgba(33,22,15,.9)}
+.btn.alt:hover{background:#000}
+.btn.sun{background:var(--sun);color:var(--ink);box-shadow:0 10px 22px -14px rgba(33,22,15,.7)}
+.btn.sun:hover{background:#FFD768}
+.top .btn{padding:13px 20px;font-size:.98rem}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,5vw,64px);align-items:center;padding:clamp(20px,4vw,48px) 0 clamp(56px,8vw,96px)}
+.hero h1{font-size:clamp(3.5rem,9.4vw,6rem);letter-spacing:-.04em;line-height:.9}
+.hero h1 em{font-style:normal;color:var(--red);display:inline-block;transform:rotate(-3deg);transform-origin:0 80%}
+.hero .lede{font-size:clamp(1.15rem,1.9vw,1.4rem);line-height:1.45;max-width:30em;margin:26px 0 28px}
+.hero .lede strong{background:linear-gradient(var(--sun),var(--sun)) 0 88%/100% .42em no-repeat}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.facts{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px;font-weight:600;color:var(--soft)}
+.facts li{display:flex;align-items:center;gap:8px}
+.facts li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--brick)}
+.shot{position:relative;margin:0}
+.shot img{width:100%;aspect-ratio:5/5.4;object-fit:cover;object-position:46% 50%;border-radius:36px;transform:rotate(2deg);box-shadow:0 30px 50px -30px rgba(33,22,15,.7)}
+.sticker{position:absolute;left:-26px;bottom:-22px;width:150px;height:150px;border-radius:50%;background:var(--sun);display:grid;place-items:center;text-align:center;font:800 1.5rem/.95 var(--disp);letter-spacing:-.03em;transform:rotate(-12deg);box-shadow:0 14px 26px -14px rgba(33,22,15,.8);animation:wob 5s ease-in-out infinite}
+.sticker small{display:block;font:600 .8rem/1.2 var(--body);letter-spacing:0;margin-top:4px}
+.tape{position:absolute;right:-8px;top:22px;background:var(--ink);color:var(--cream);font:700 .95rem/1 var(--disp);padding:10px 14px;border-radius:8px;transform:rotate(5deg)}
+@keyframes wob{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(-5deg) scale(1.04)}}
+
+/* translator */
+.already{background:var(--paper);border-radius:44px 44px 0 0;padding:clamp(52px,8vw,96px) 0 clamp(40px,6vw,72px)}
+.already .intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:24px 48px;align-items:end;margin-bottom:36px}
+.already .intro p{margin:0;color:var(--soft);max-width:34em}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:grid;grid-template-columns:84px minmax(0,1fr) minmax(0,1fr);gap:clamp(14px,3vw,36px);align-items:center;padding:20px 0;border-top:2px solid var(--line)}
+.rows li:last-child{border-bottom:2px solid var(--line)}
+.pic{width:84px;height:84px;border-radius:26px;display:grid;place-items:center;transition:transform .4s var(--ease)}
+.rows li:nth-child(1) .pic{background:var(--sun);transform:rotate(-5deg)}
+.rows li:nth-child(2) .pic{background:var(--brick);transform:rotate(4deg)}
+.rows li:nth-child(3) .pic{background:#F6B7A5;transform:rotate(-3deg)}
+.rows li:nth-child(4) .pic{background:var(--sun);transform:rotate(6deg)}
+.rows li:nth-child(5) .pic{background:var(--line);transform:rotate(-4deg)}
+.rows li:hover .pic{transform:rotate(0) scale(1.08)}
+.pic svg{width:52px;height:52px;fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.q{font:500 clamp(1.15rem,2.3vw,1.6rem)/1.2 var(--disp);letter-spacing:-.015em}
+.a{font:800 clamp(1.5rem,3.6vw,2.6rem)/1 var(--disp);letter-spacing:-.03em;color:var(--red)}
+.rows li:last-child .a{color:var(--soft);font-size:clamp(1.15rem,2.2vw,1.55rem);font-weight:700;line-height:1.15}
+
+/* everyone */
+.every{background:var(--paper);padding:clamp(40px,6vw,72px) 0 clamp(56px,8vw,100px)}
+.every .grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,64px);align-items:center}
+.every figure{margin:0;position:relative}
+.every figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 34%;border-radius:36px;transform:rotate(-2deg)}
+.every figcaption{position:absolute;left:14px;right:14px;bottom:16px;background:var(--cream);border-radius:18px;padding:14px 18px;font-weight:600;line-height:1.35;transform:rotate(1deg);box-shadow:0 12px 24px -16px rgba(33,22,15,.8)}
+.chips{list-style:none;margin:26px 0 24px;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.chips li{font:700 clamp(1rem,1.5vw,1.14rem)/1.25 var(--disp);padding:12px 18px;border-radius:999px;background:var(--cream);border:2px solid var(--ink)}
+.chips li:nth-child(3n+1){background:var(--sun);transform:rotate(-1.5deg)}
+.chips li:nth-child(3n+2){transform:rotate(1deg)}
+.chips li:nth-child(4n){background:var(--red);color:#fff;border-color:var(--red)}
+.every .say{max-width:36em;color:var(--soft)}
+
+/* class */
+.klass{padding:clamp(56px,8vw,100px) 0}
+.klass .grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,64px);align-items:start}
+.hour{display:flex;gap:6px;margin:30px 0 10px;font:800 1.05rem/1.1 var(--disp)}
+.hour div{padding:20px 16px;border-radius:18px;min-width:0}
+.hour div span{display:block;font:600 .9rem/1.2 var(--body);margin-top:6px}
+.hour .w{flex:1.2;background:var(--sun)}
+.hour .s{flex:3.4;background:var(--red);color:#fff}
+.hour .c{flex:1.8;background:var(--ink);color:var(--cream)}
+.note{color:var(--soft);font-size:.98rem}
+.beats{list-style:none;margin:26px 0 0;padding:0;font:700 clamp(1.2rem,2.2vw,1.55rem)/1.2 var(--disp);letter-spacing:-.02em}
+.beats li{padding:14px 0 14px 44px;border-top:2px solid var(--line);position:relative}
+.beats li::before{content:"";position:absolute;left:4px;top:19px;width:22px;height:22px;border-radius:50%;background:var(--brick)}
+.beats li:nth-child(2)::before{background:var(--sun)}.beats li:nth-child(3)::before{background:var(--red)}
+.week{background:var(--paper);border-radius:32px;padding:26px;box-shadow:0 24px 40px -34px rgba(33,22,15,.8)}
+.week h3{font-size:1.7rem;margin-bottom:14px}
+.week ol{list-style:none;margin:0;padding:0}
+.week li{display:grid;grid-template-columns:3.2em 1fr;gap:12px;padding:11px 0;border-top:2px solid var(--line);align-items:baseline}
+.week li b{font:800 1.05rem var(--disp)}
+.week li span{font-weight:600}
+.week li small{display:block;font-size:.92rem;font-weight:400;color:var(--soft)}
+.week .times{margin:14px 0 0;font-size:.95rem;color:var(--soft)}
+
+/* kickstart */
+.kick{background:var(--red);color:#fff;border-radius:44px;margin:0 clamp(8px,2vw,24px);padding:clamp(40px,6vw,76px) 0;position:relative;overflow:hidden}
+.kick .grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,64px);align-items:center}
+.kick h2{font-size:clamp(2.6rem,7vw,5rem)}
+.kick h2 i{font-style:normal;color:var(--sun)}
+.price{display:flex;align-items:baseline;gap:14px;margin:18px 0 6px;font:800 clamp(3rem,7vw,4.6rem)/1 var(--disp);letter-spacing:-.04em;color:var(--sun)}
+.price small{font:600 1.05rem/1.3 var(--body);letter-spacing:0;color:#fff;max-width:14em}
+.incl{list-style:none;margin:20px 0 26px;padding:0;font-weight:600;font-size:1.1rem}
+.incl li{padding:9px 0 9px 34px;position:relative}
+.incl li::before{content:"";position:absolute;left:0;top:11px;width:24px;height:24px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFC83D' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 13l5 5L20 6'/%3E%3C/svg%3E") center/contain no-repeat}
+.kick blockquote{margin:0 0 18px;font:700 clamp(1.3rem,2.6vw,1.9rem)/1.2 var(--disp);letter-spacing:-.02em}
+.kick figure{margin:0}
+.kick figure img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:52% 50%;border-radius:32px;transform:rotate(2deg);box-shadow:0 26px 44px -26px rgba(0,0,0,.7)}
+.kick .fine{font-size:.98rem;color:#FFE3DA;margin:16px 0 0}
+
+/* prices */
+.prices{padding:clamp(56px,8vw,100px) 0}
+.prices .grid{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(24px,5vw,64px);align-items:start}
+.prices p{color:var(--soft);max-width:26em;margin-top:18px}
+.plist{margin:0}
+.plist div{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:18px 0;border-top:2px solid var(--line)}
+.plist div:last-child{border-bottom:2px solid var(--line)}
+.plist dt{font:800 clamp(1.25rem,2.4vw,1.6rem)/1.1 var(--disp);letter-spacing:-.02em}
+.plist dd{margin:0}
+.plist dd.p{font:800 clamp(1.25rem,2.4vw,1.6rem)/1.1 var(--disp);color:var(--red);text-align:right;white-space:nowrap}
+.plist dd.d{grid-column:1/-1;color:var(--soft);max-width:44em}
+
+/* find */
+.find{background:var(--ink);color:var(--cream);padding:clamp(52px,7vw,88px) 0 30px;border-radius:44px 44px 0 0}
+.find .grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr) minmax(0,.8fr);gap:clamp(24px,4vw,56px)}
+.find h2{font-size:clamp(2.2rem,5.4vw,3.8rem)}
+.find h2 span{color:var(--sun)}
+.find h3{font-size:1.25rem;color:var(--sun);margin-bottom:10px;letter-spacing:-.01em}
+.find address{font-style:normal}
+.find p,.find address{color:#EBDCC6;margin:0 0 14px}
+.big{display:block;font:800 clamp(1.5rem,3vw,2.1rem)/1.1 var(--disp);letter-spacing:-.02em;color:#fff;text-decoration:none;margin:20px 0 6px;width:fit-content;background:linear-gradient(var(--red),var(--red)) 0 100%/100% 4px no-repeat;padding-bottom:6px;transition:background-size .35s var(--ease)}
+.big:hover{background-size:100% 100%}
+.find .mail{color:#fff;font-weight:600;text-underline-offset:4px;overflow-wrap:anywhere}
+.find .mail:hover{color:var(--sun)}
+.hours{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 16px;color:#EBDCC6}
+.hours dt{font-weight:700;color:#fff}.hours dd{margin:0}
+.foot{margin-top:44px;padding-top:20px;border-top:1px solid #4A3A2E;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:.92rem;color:#C9B79E}
+.foot a{color:#fff;text-underline-offset:4px}.foot a:hover{color:var(--sun)}
+
+@media (max-width:900px){
+  .nav a:not(.btn){display:none}
+  .hero,.already .intro,.every .grid,.klass .grid,.kick .grid,.prices .grid,.find .grid{grid-template-columns:minmax(0,1fr)}
+  .shot{margin:10px 14px 24px 26px}
+  .every figure{max-width:440px}
+  .kick figure{max-width:420px;order:-1}
+}
+@media (max-width:560px){
+  .mark{font-size:1.25rem}.mark b{width:38px;height:38px}
+  .top .btn{padding:11px 15px;font-size:.92rem}
+  .rows li{grid-template-columns:60px minmax(0,1fr);gap:4px 14px}
+  .pic{width:60px;height:60px;border-radius:18px;grid-row:1/3}.pic svg{width:38px;height:38px}
+  .a{grid-column:2}
+  .sticker{width:118px;height:118px;font-size:1.2rem;left:-22px;bottom:-18px}
+  .hour{font-size:.8rem;gap:4px}.hour div{padding:13px 7px}.hour div span{font-size:.74rem}.hour .w{flex:1.3}.hour .s{flex:2.6}.hour .c{flex:2.2}
+  .btn{padding:16px 20px}
+  .kick{border-radius:30px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div style="background:#17201B;color:#fff;font:500 14px/1.4 system-ui,sans-serif;padding:9px 20px;position:relative;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;z-index:2147483000"><span style="display:inline-flex;align-items:center;gap:8px"><svg style="height:12px;width:auto;color:#fff" viewBox="0 0 487.5 208.5" role="img" aria-label="Pete Owen Design logo"><path fill="currentColor" d="M487.5,10.6h-41.2v15.5c-15.3-10.6-33.9-16.8-53.8-16.8-30.1,0-57,14.1-74.4,36-17.4-21.9-44.3-36-74.4-36s-57,14.1-74.4,36c-17.4-21.9-44.3-36-74.4-36C44.8,9.4,3.8,48,0,96.9h-.3v100.3h41.2v-14.5c15.3,10.6,33.9,16.8,53.8,16.8,30.1,0,57-14.1,74.4-36,17.4,21.9,44.3,36,74.4,36s57-14.1,74.4-36c17.4,21.9,44.3,36,74.4,36,52.4,0,95.1-42.6,95.1-95.1s0-1.3,0-1.9h0V10.6h0ZM94.6,158.2c-29.7,0-53.8-24.2-53.8-53.8s24.2-53.8,53.8-53.8,53.8,24.2,53.8,53.8-24.2,53.8-53.8,53.8ZM243.5,158.2c-29.7,0-53.8-24.2-53.8-53.8s24.2-53.8,53.8-53.8,53.8,24.2,53.8,53.8-24.2,53.8-53.8,53.8ZM392.4,158.2c-29.7,0-53.8-24.2-53.8-53.8s24.2-53.8,53.8-53.8,53.8,24.2,53.8,53.8-24.2,53.8-53.8,53.8Z"/></svg> Design idea by Pete Owen Design. Not the live First Space Fitness website.</span><a href="../index.html" style="color:#fff;font-weight:700">Back to the start</a></div>
+<!--
+THESIS: You already do every lift in this gym; you just call it shopping, shelves and getting off the sofa.
+OWN-WORLD: Their own joke from the FAQ ("Sat down and got up? That's a squat") plus the warm brick-orange of the mural on their wall.
+STORY: You can already do this, here is who else comes, here is what an hour looks like, try it for 21 days.
+FIRST VIEWPORT: Giant "You already lift.", a tilted photo of a real class with the mural behind, a yellow "first session free" sticker.
+-->
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#top" aria-label="First Space, home"><b aria-hidden="true">1st</b>first<span>space</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#already">Never done this?</a>
+      <a href="#class">Classes</a>
+      <a href="#prices">Prices</a>
+      <a href="#find">Find us</a>
+      <a class="btn" href="#kickstart">Try 21 days</a>
+    </nav>
+  </header>
+
+  <main id="top">
+  <section class="hero">
+    <div>
+      <h1>You already <em>lift.</em></h1>
+      <p class="lede">Sat down and got up again? <strong>That's a squat.</strong> First Space is the coached strength and fitness gym in Northwich where we teach you the rest, in a class, with zero judgment.</p>
+      <div class="cta">
+        <a class="btn" href="#kickstart">Start the 21 Day Kickstart</a>
+        <a class="btn alt" href="#class">See the week</a>
+      </div>
+      <ul class="facts">
+        <li>First session free</li>
+        <li>No lengthy contract</li>
+        <li>Unit 51, Winnington</li>
+      </ul>
+    </div>
+    <figure class="shot">
+      <img src="https://static.wixstatic.com/media/ae4fdc_51c467c01d0b4c47a1eac3c4c41cc938~mv2.jpg/v1/fit/w_1600,h_1600,q_82/first-space-class.jpg" alt="A member lunging with a weight plate during a class at First Space, with the gym's brick mural behind her" width="1600" height="899">
+      <span class="tape">Strength. Fitness. Together.</span>
+      <span class="sticker"><span>First session free<small>then 21 days to try us</small></span></span>
+    </figure>
+  </section>
+  </main>
+</div>
+
+<section class="already" id="already">
+  <div class="wrap">
+    <div class="intro">
+      <h2>But I've never done this before!</h2>
+      <p>Great! That means you have no bad habits. We are coach led and you WILL learn. You can do a lot more than you think.</p>
+    </div>
+    <ul class="rows">
+      <li>
+        <span class="pic" aria-hidden="true"><svg viewBox="0 0 52 52"><path d="M14 8v22h22M14 30v14M36 30v14M14 20h18"/></svg></span>
+        <span class="q">Have you ever sat down and got up before?</span>
+        <span class="a">That's a squat.</span>
+      </li>
+      <li>
+        <span class="pic" aria-hidden="true"><svg viewBox="0 0 52 52"><path d="M8 20l18-8 18 8v20l-18 6-18-6zM8 20l18 7 18-7M26 27v19"/></svg></span>
+        <span class="q">Have you ever picked up something heavy from the floor?</span>
+        <span class="a">That's a deadlift.</span>
+      </li>
+      <li>
+        <span class="pic" aria-hidden="true"><svg viewBox="0 0 52 52"><path d="M6 22h16l-2 22H8zM10 22c0-8 8-8 8 0M30 22h16l-2 22H32zM34 22c0-8 8-8 8 0"/></svg></span>
+        <span class="q">Carried heavy shopping bags?</span>
+        <span class="a">That's a kettlebell farmer's walk.</span>
+      </li>
+      <li>
+        <span class="pic" aria-hidden="true"><svg viewBox="0 0 52 52"><path d="M6 20h40M6 40h40M12 20v-9h12v9M30 40V28h10v12M18 6v0"/></svg></span>
+        <span class="q">Put something heavy on a shelf?</span>
+        <span class="a">That's an overhead press.</span>
+      </li>
+      <li>
+        <span class="pic" aria-hidden="true"><svg viewBox="0 0 52 52"><path d="M6 14v28M6 34h40v8M6 26h34a6 6 0 016 6v2M12 26v-5h10v5"/></svg></span>
+        <span class="q">Made the bed?</span>
+        <span class="a">Can't help you there, that's just always gonna be boring.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="every">
+  <div class="wrap grid">
+    <figure>
+      <img src="https://static.wixstatic.com/media/ae4fdc_cb7d79cdf0974df2a1473d7e266a4f10~mv2.jpg/v1/fit/w_1100,h_1960,q_82/first-space-coaches.jpg" alt="Two First Space coaches, one pointing and one laughing, briefing a class in front of the gym's mural" loading="lazy" width="1100" height="1957">
+      <figcaption>You'll be greeted with a smile, maybe a fist bump!</figcaption>
+    </figure>
+    <div>
+      <h2>Who is it for? In short, everyone.</h2>
+      <ul class="chips">
+        <li>60+ wanting to find that fitter, stronger you again</li>
+        <li>30 to 45 year old tired parent</li>
+        <li>Never trained before and want to learn properly</li>
+        <li>20 to 30 and want to be Ibiza ready</li>
+        <li>Overweight and feeling really tired and low</li>
+        <li>Had enough of a commercial gym</li>
+        <li>Injuries and niggles? Absolutely fine, we adjust the workout</li>
+        <li>So you bench press 100kg? Great, let's go</li>
+      </ul>
+      <p class="say">You won't be held back if you're advanced. You won't be pushed beyond your limits if you are a complete novice. We are in this together: a class of like-minded people with the same goal of being a better, stronger, fitter you.</p>
+    </div>
+  </div>
+</section>
+
+<section class="klass" id="class">
+  <div class="wrap grid">
+    <div>
+      <h2>One hour. Fully coached. No random workouts.</h2>
+      <div class="hour" role="img" aria-label="A strength class: 5 to 10 minutes of mobility and warm-up, 30 to 40 minutes of strength, 10 to 20 minutes of conditioning">
+        <div class="w">Warm-up<span>5–10 min</span></div>
+        <div class="s">Strength<span>30–40 min</span></div>
+        <div class="c">Conditioning<span>10–20 min</span></div>
+      </div>
+      <p class="note">That's an FS360 strength class. FS360 Conditioning classes swap the middle for 50 to 55 minutes that will get you fit and test your capacity and endurance.</p>
+      <ul class="beats">
+        <li>We all do the same workout, but every class is scalable to your fitness level and experience.</li>
+        <li>We work, sweat, grind (and laugh) together.</li>
+        <li>You will leave feeling better than when you came in.</li>
+      </ul>
+    </div>
+    <aside class="week" aria-labelledby="wk">
+      <h3 id="wk">What's on when</h3>
+      <ol>
+        <li><b>Mon</b><span>FS360 Bench</span></li>
+        <li><b>Tue</b><span>FS360 Hybrid<small>plus Conditioning at 6pm</small></span></li>
+        <li><b>Wed</b><span>FS360 Deadlift</span></li>
+        <li><b>Thu</b><span>FS360 Lift<small>plus Conditioning "Beast" at 6pm</small></span></li>
+        <li><b>Fri</b><span>FS360 Squat</span></li>
+        <li><b>Sat</b><span>The Saturday Send<small>9 to 10.30am. The biggest class of the week.</small></span></li>
+        <li><b>Sun</b><span>Rest and recover</span></li>
+      </ol>
+      <p class="times">Weekday classes at 6am, 7am, 9.30am, 5pm, 6pm and 7pm. Open gym in between. Check the booking page for the odd gap.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="kick" id="kickstart">
+  <div class="wrap grid">
+    <div>
+      <h2>The <i>21 Day</i> Kickstart</h2>
+      <p class="price">£97 <small>for 21 days, unlimited. Your first session is free.</small></p>
+      <ul class="incl">
+        <li>21 days of UNLIMITED group strength classes</li>
+        <li>A 1-2-1 nutrition consultation with an RSPH qualified nutritionist</li>
+        <li>A 1-2-1 strength goal setting session</li>
+      </ul>
+      <blockquote>There is no pressure, no sales pitch, no lengthy boring interview about your goals.</blockquote>
+      <div class="cta">
+        <a class="btn sun" href="https://www.firstspacefitness.com/contact">Claim my free first session</a>
+        <a class="btn alt" href="tel:07496924986">Call 07496 924986</a>
+      </div>
+      <p class="fine">Fill in a quick form and one of the team will be in touch within 24 hours. If it's not for you, that's cool also. We'll check in with you once.</p>
+    </div>
+    <figure>
+      <img src="https://static.wixstatic.com/media/ae4fdc_b3a1c3f7c8f84d96864678d91bd4e8dc~mv2.jpg/v1/fit/w_1400,h_1400,q_82/first-space-lunges.jpg" alt="Two members doing barbell lunges side by side at the rig" loading="lazy" width="1400" height="787">
+    </figure>
+  </div>
+</section>
+
+<section class="prices" id="prices">
+  <div class="wrap grid">
+    <div>
+      <h2>Then when you love it, which you will</h2>
+      <p>There is no lengthy contract. One month rolling payment, paid at the start of the month. That's it. On cancellation there is a 4 week notice period.</p>
+    </div>
+    <dl class="plist">
+      <div><dt>First Space Athlete</dt><dd class="p">£127 a month</dd><dd class="d">Unlimited access to the entire timetable, FS360 classes and open gym.</dd></div>
+      <div><dt>First Space Athlete Plus</dt><dd class="p">£197 a month</dd><dd class="d">Small group personal training on top of the full timetable, with coaching sessions and goal setting with your strength coach. A minimum term applies.</dd></div>
+      <div><dt>Day pass</dt><dd class="p">£14.95</dd><dd class="d">Come and join in a class with a family member or friend who is a member.</dd></div>
+      <div><dt>Personal training, 1-2-1</dt><dd class="p">£50 a session</dd><dd class="d">Or ten one-hour sessions with an induction and movement screen for £450.</dd></div>
+      <div><dt>Nutrition coaching</dt><dd class="p">£279 for six weeks</dd><dd class="d">A one-hour consultation, a week of tracking, then weekly 1-2-1 check-ins. Not about restriction but balance.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<footer class="find" id="find">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <h2>You turn up. <span>We'll do the rest.</span></h2>
+        <a class="big" href="tel:07496924986">07496 924986</a>
+        <a class="mail" href="mailto:lee@firstspacefitness.com">lee@firstspacefitness.com</a>
+      </div>
+      <div>
+        <h3>Where</h3>
+        <address>Unit 51<br>Winnington Industrial Estate<br>Northwich, Cheshire<br>CW8 4FT</address>
+      </div>
+      <div>
+        <h3>Open</h3>
+        <dl class="hours"><dt>Mon to Fri</dt><dd>6am to 8pm</dd><dt>Saturday</dt><dd>8am to 12pm</dd></dl>
+      </div>
+    </div>
+    <div class="foot">
+      <span>First Space Fitness Ltd. Established 2023.</span>
+      <span><a href="https://www.instagram.com/FIRSTSPACEFITNESS">Instagram</a> · <a href="https://www.facebook.com/firstspacefitness">Facebook</a></span>
+      <span>Concept design by Pete Owen Design. Not the live First Space website.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

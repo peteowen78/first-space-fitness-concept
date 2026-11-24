@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>First Space — direction C, Straight Answers (concept)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+:root{
+  --stone:#EEF0EB; --card:#FBFBF8; --ink:#16241E; --moss:#3F5248; --line:#CBD1C8;
+  --brick:#B03C22; --brick-deep:#8E2D17; --blush:#F3D9CC; --pine:#1E3A2F;
+  --disp:"Young Serif",Georgia,serif; --body:Karla,system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--stone);color:var(--ink);font:400 1.125rem/1.62 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--brick);outline-offset:4px;border-radius:4px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(20px,4vw,44px)}
+h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:1.06;letter-spacing:-.015em;margin:0;text-wrap:balance}
+h2{font-size:clamp(2rem,4.4vw,3.2rem)}
+p{margin:0 0 1em}
+
+.top{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 0;border-bottom:1px solid var(--line)}
+.mark{text-decoration:none;font:400 1.6rem/1 var(--disp);letter-spacing:-.02em;display:flex;align-items:baseline;gap:10px}
+.mark small{font:600 .82rem/1 var(--body);letter-spacing:.02em;color:var(--moss)}
+.mark::before{content:"";align-self:center;width:14px;height:14px;border-radius:50%;background:var(--brick)}
+.nav{display:flex;align-items:center;gap:26px;font-weight:600;font-size:1rem}
+.nav a{text-decoration:none;padding:4px 0;border-bottom:2px solid transparent;transition:border-color .2s}
+.nav a:hover{border-color:var(--brick)}
+.nav .tel{font-weight:700;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 1.05rem/1 var(--body);text-decoration:none;padding:17px 26px;border-radius:10px;background:var(--brick);color:#fff;transition:background .2s,transform .3s var(--ease)}
+.btn:hover{background:var(--brick-deep);transform:translateY(-2px)}
+.btn.quiet{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn.quiet:hover{background:var(--ink);color:var(--stone)}
+
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,72px);align-items:center;padding:clamp(32px,5vw,64px) 0 clamp(52px,7vw,92px)}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.3rem)}
+.hero h1 span{color:var(--brick)}
+.hero .lede{font-size:clamp(1.15rem,1.7vw,1.3rem);line-height:1.5;max-width:31em;margin:24px 0 28px;color:var(--ink)}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero .sub{margin:22px 0 0;color:var(--moss);font-size:1rem;max-width:34em}
+.hero figure{margin:0;position:relative}
+.hero figure img{width:100%;aspect-ratio:4/4.7;object-fit:cover;object-position:50% 36%;border-radius:200px 200px 14px 14px}
+.hero figcaption{position:absolute;left:-18px;bottom:26px;max-width:15.5em;background:var(--card);padding:14px 18px;border-radius:12px;font:400 1.1rem/1.3 var(--disp);box-shadow:0 18px 30px -22px rgba(22,36,30,.8)}
+
+.qa{background:var(--card);padding:clamp(56px,8vw,104px) 0}
+.qa .grid{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:clamp(28px,5vw,72px);align-items:start}
+.qa .side{position:sticky;top:28px}
+.qa .side p{color:var(--moss);margin:18px 0 0;max-width:22em}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr 34px;gap:16px;align-items:center;padding:22px 0;font:400 clamp(1.3rem,2.4vw,1.75rem)/1.2 var(--disp);letter-spacing:-.01em;transition:color .2s}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";width:34px;height:34px;border-radius:50%;background:var(--blush) linear-gradient(var(--brick),var(--brick)) center/14px 2px no-repeat;box-shadow:inset 0 0 0 0 var(--brick);transition:transform .4s var(--ease);background-image:linear-gradient(var(--brick),var(--brick)),linear-gradient(var(--brick),var(--brick));background-size:14px 2px,2px 14px;background-position:center;background-repeat:no-repeat}
+details[open] summary::after{transform:rotate(45deg)}
+summary:hover{color:var(--brick)}
+.ans{padding:0 50px 26px 0;max-width:40em}
+.ans p:last-child{margin-bottom:0}
+.ans ul{margin:0 0 1em;padding-left:1.15em}
+.ans li{margin:.25em 0}
+.ans strong{font-weight:700}
+
+.hourx{padding:clamp(56px,8vw,104px) 0}
+.hourx .grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,72px);align-items:center}
+.steps{list-style:none;margin:30px 0 0;padding:0;position:relative}
+.steps::before{content:"";position:absolute;left:5.6em;top:10px;bottom:10px;width:2px;background:var(--line)}
+.steps li{display:grid;grid-template-columns:4.6em 1fr;gap:2em;padding:14px 0;position:relative}
+.steps li::before{content:"";position:absolute;left:5.6em;top:25px;width:12px;height:12px;margin-left:-5px;border-radius:50%;background:var(--brick);box-shadow:0 0 0 5px var(--stone)}
+.steps b{font:700 .98rem/1.6 var(--body);color:var(--moss);text-align:right;padding-top:3px}
+.steps span{font:400 clamp(1.15rem,2vw,1.4rem)/1.3 var(--disp)}
+.steps small{display:block;font:400 1.02rem/1.5 var(--body);color:var(--moss);margin-top:4px}
+.hourx figure{margin:0}
+.hourx figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 38%;border-radius:14px 14px 200px 200px}
+
+.promise{background:var(--pine);color:#EEF0EB;padding:clamp(60px,9vw,120px) 0}
+.promise blockquote{margin:0;font:400 clamp(1.8rem,4.4vw,3.3rem)/1.14 var(--disp);letter-spacing:-.015em;max-width:21em;text-wrap:balance}
+.promise blockquote span{color:#F2A88F}
+.promise p{margin:26px 0 0;color:#C9D4CC;max-width:38em}
+.team{list-style:none;margin:36px 0 0;padding:26px 0 0;border-top:1px solid #47604F;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 40px}
+.team li{font:400 1.25rem/1.25 var(--disp)}
+.team li small{display:block;font:400 1rem/1.5 var(--body);color:#C9D4CC;margin-top:6px}
+
+.try{padding:clamp(56px,8vw,104px) 0}
+.try .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.try .lede{font-size:1.2rem;max-width:30em;margin:20px 0 0}
+.try ol{margin:22px 0 26px;padding:0;list-style:none;counter-reset:s}
+.try ol li{counter-increment:s;display:grid;grid-template-columns:2.2em 1fr;padding:10px 0;border-top:1px solid var(--line)}
+.try ol li::before{content:counter(s);font:400 1.3rem/1.2 var(--disp);color:var(--brick)}
+.card{background:var(--card);border-radius:14px;padding:clamp(22px,3vw,34px);box-shadow:0 24px 40px -34px rgba(22,36,30,.7)}
+.card h3{font-size:1.5rem;margin-bottom:6px}
+.card .amt{font:400 clamp(2.6rem,5vw,3.6rem)/1 var(--disp);color:var(--brick);margin:8px 0 8px}
+.card .amt small{font:500 1rem/1.3 var(--body);color:var(--moss);margin-left:8px}
+.card ul{list-style:none;margin:14px 0 20px;padding:0}
+.card ul li{padding:8px 0 8px 28px;position:relative;border-top:1px solid var(--line)}
+.card ul li::before{content:"";position:absolute;left:2px;top:17px;width:12px;height:6px;border-left:2.5px solid var(--brick);border-bottom:2.5px solid var(--brick);transform:rotate(-45deg)}
+.after{margin:26px 0 0}
+.after div{display:grid;grid-template-columns:1fr auto;gap:2px 18px;padding:13px 0;border-top:1px solid var(--line)}
+.after div:last-child{border-bottom:1px solid var(--line)}
+.after dt{font:400 1.2rem/1.2 var(--disp)}
+.after dd{margin:0}
+.after .p{font-weight:700;white-space:nowrap;text-align:right}
+.after .d{grid-column:1/-1;font-size:1rem;color:var(--moss)}
+.small{font-size:1rem;color:var(--moss);margin:16px 0 0}
+
+footer{background:var(--card);border-top:1px solid var(--line);padding:clamp(44px,6vw,76px) 0 28px}
+footer .grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:clamp(22px,4vw,56px)}
+footer h2{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+footer h3{font-size:1.2rem;margin-bottom:8px}
+footer address{font-style:normal}
+footer p,footer address{margin:0 0 10px}
+.phone{display:inline-block;font:400 clamp(1.8rem,3.6vw,2.5rem)/1.1 var(--disp);text-decoration:none;color:var(--brick);margin:18px 0 6px;border-bottom:2px solid transparent;transition:border-color .2s}
+.phone:hover{border-color:var(--brick)}
+.mail{font-weight:600;text-underline-offset:4px;overflow-wrap:anywhere}.mail:hover{color:var(--brick)}
+.hours{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 16px}.hours dt{font-weight:700}.hours dd{margin:0}
+.base{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:.95rem;color:var(--moss)}
+.base a{text-underline-offset:4px}.base a:hover{color:var(--brick)}
+
+@media (max-width:900px){
+  .nav a:not(.tel){display:none}
+  .hero,.qa .grid,.hourx .grid,.try .grid,footer .grid{grid-template-columns:minmax(0,1fr)}
+  .qa .side{position:static}
+  .hero figure{max-width:460px;margin-left:18px}
+  .hourx figure{max-width:420px}
+  .team{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  .mark small{display:none}
+  .ans{padding-right:0}
+  .steps::before,.steps li::before{left:4.3em}
+  .steps li{grid-template-columns:3.6em 1fr;gap:1.5em}
+  .hero figcaption{left:-12px;font-size:1rem}
+  .btn{padding:16px 20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div style="background:#17201B;color:#fff;font:500 14px/1.4 system-ui,sans-serif;padding:9px 20px;position:relative;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;z-index:2147483000"><span style="display:inline-flex;align-items:center;gap:8px"><svg style="height:12px;width:auto;color:#fff" viewBox="0 0 487.5 208.5" role="img" aria-label="Pete Owen Design logo"><path fill="currentColor" d="M487.5,10.6h-41.2v15.5c-15.3-10.6-33.9-16.8-53.8-16.8-30.1,0-57,14.1-74.4,36-17.4-21.9-44.3-36-74.4-36s-57,14.1-74.4,36c-17.4-21.9-44.3-36-74.4-36C44.8,9.4,3.8,48,0,96.9h-.3v100.3h41.2v-14.5c15.3,10.6,33.9,16.8,53.8,16.8,30.1,0,57-14.1,74.4-36,17.4,21.9,44.3,36,74.4,36s57-14.1,74.4-36c17.4,21.9,44.3,36,74.4,36,52.4,0,95.1-42.6,95.1-95.1s0-1.3,0-1.9h0V10.6h0ZM94.6,158.2c-29.7,0-53.8-24.2-53.8-53.8s24.2-53.8,53.8-53.8,53.8,24.2,53.8,53.8-24.2,53.8-53.8,53.8ZM243.5,158.2c-29.7,0-53.8-24.2-53.8-53.8s24.2-53.8,53.8-53.8,53.8,24.2,53.8,53.8-24.2,53.8-53.8,53.8ZM392.4,158.2c-29.7,0-53.8-24.2-53.8-53.8s24.2-53.8,53.8-53.8,53.8,24.2,53.8,53.8-24.2,53.8-53.8,53.8Z"/></svg> Design idea by Pete Owen Design. Not the live First Space Fitness website.</span><a href="../index.html" style="color:#fff;font-weight:700">Back to the start</a></div>
+<!--
+THESIS: The people this gym wants most are nervous about walking in, so the homepage answers their questions honestly before it sells anything.
+OWN-WORLD: Their own FAQ, written like a coach talking to you at the door; brick red from the mural, calm green and stone instead of gym black.
+STORY: It is fine that you are new, your questions answered straight, what your first hour is like, what we promise, try it for 21 days.
+FIRST VIEWPORT: "Never done this before? Great. That means you have no bad habits." in a warm serif beside the two coaches, one of them laughing.
+-->
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#top" aria-label="First Space, home">First Space <small>Strength and fitness, Northwich</small></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#questions">Your questions</a>
+      <a href="#hour">Your first hour</a>
+      <a href="#try">Try 21 days</a>
+      <a class="tel" href="tel:07496924986">07496 924986</a>
+    </nav>
+  </header>
+
+  <main id="top">
+  <section class="hero">
+    <div>
+      <h1>Never done this before? <span>Great. That means you have no bad habits.</span></h1>
+      <p class="lede">First Space is a coach-led strength and fitness gym in Northwich. You will not be pushed beyond your abilities or asked to do something complicated you haven't learnt yet.</p>
+      <div class="cta">
+        <a class="btn" href="#try">Try us for 21 days</a>
+        <a class="btn quiet" href="#questions">Read the straight answers</a>
+      </div>
+      <p class="sub">A safe space for all. Zero judgment. Whatever your skill level or how far along the path you are.</p>
+    </div>
+    <figure>
+      <img src="https://static.wixstatic.com/media/ae4fdc_cb7d79cdf0974df2a1473d7e266a4f10~mv2.jpg/v1/fit/w_1200,h_2140,q_82/first-space-coaches.jpg" alt="Two First Space coaches talking a class through the session; one points, the other is laughing" width="1200" height="2135">
+      <figcaption>You'll be greeted with a smile, maybe a fist bump!</figcaption>
+    </figure>
+  </section>
+  </main>
+</div>
+
+<section class="qa" id="questions">
+  <div class="wrap grid">
+    <div class="side">
+      <h2>The things people ask before they walk in</h2>
+      <p>Answered the way we'd answer them at the door. You won't be over sold.</p>
+    </div>
+    <div>
+      <details open>
+        <summary>Who is it for?</summary>
+        <div class="ans">
+          <p>In short, everyone.</p>
+          <ul>
+            <li>60+ wanting to find that fitter, stronger you again</li>
+            <li>A 30 to 45 year old tired parent</li>
+            <li>Overweight and feeling really tired and low</li>
+            <li>Never trained before and want to learn properly</li>
+            <li>Training at a commercial gym and think it's time to get serious, and need guidance</li>
+          </ul>
+          <p>You won't be held back if you're advanced. You won't be pushed beyond your limits if you are a complete novice.</p>
+        </div>
+      </details>
+      <details>
+        <summary>I have injuries and niggles. Is that a problem?</summary>
+        <div class="ans"><p>Absolutely fine, we adjust the workout. We all do the same workout but all the classes are scalable and adjustable based on fitness level and experience. We also have an in-house physio.</p></div>
+      </details>
+      <details>
+        <summary>What will I be doing?</summary>
+        <div class="ans"><p>Sixty minutes of fully coached strength and fitness. Dumbbells, kettlebells, barbells, functional kit and bodyweight are at the forefront. There will always be elements of conditioning to get that pulse racing, and essential flexibility and mobility to get you moving better and keep you injury free.</p><p>No random workouts. You won't just sweat here. You'll get better.</p></div>
+      </details>
+      <details>
+        <summary>Why should I be strength training? I'm too old for this.</summary>
+        <div class="ans"><p>Just not true. There is a common myth that as we age we must slow down and do less. We are designed to be physically active way beyond what can be classed as youth. Use it or lose it!</p></div>
+      </details>
+      <details>
+        <summary>Why not just join a cheaper gym and do my own thing?</summary>
+        <div class="ans"><p>You can absolutely do that. You should be proud of yourself you turned up. There is more to it than that though.</p><p>Do you drive? Did you just jump in a car one day and zoom off, or did you have driving lessons? Head down to First Space and let us show you how to drive your car. (We have analogies for days!)</p></div>
+      </details>
+      <details>
+        <summary>Yeah, but what do you do better than the other gyms?</summary>
+        <div class="ans"><p>There are some fantastic gyms and coaches around. Anyone saying they have some sort of cheat code and do it better than anyone else is just not telling you the truth.</p><p>We are passionate about all things strength and conditioning and how it changes your life for the better. We believe you should be too. That's the cheat code.</p></div>
+      </details>
+      <details>
+        <summary>Is there a contract?</summary>
+        <div class="ans"><p>There is no lengthy contract. One month rolling payment, paid at the start of the month. That's it. On cancellation there is a 4 week notice period.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="hourx" id="hour">
+  <div class="wrap grid">
+    <div>
+      <h2>What your first hour is like</h2>
+      <ol class="steps">
+        <li><b>Arrive</b><span>You turn up ready to rock.<small>You'll be greeted with a smile, maybe a fist bump!</small></span></li>
+        <li><b>8 to 10 min</b><span>A run through of the workout and the all-important warm-up.<small>To get you moving and get you stretched out.</small></span></li>
+        <li><b>The rest</b><span>You WILL be lifting weights. Everyone should be!<small>Coached, guided and pushed through the entire workout, at your level.</small></span></li>
+        <li><b>60 min</b><span>You will leave feeling better than when you came in.<small>We work, sweat, grind (and laugh) together.</small></span></li>
+      </ol>
+    </div>
+    <figure><img src="https://static.wixstatic.com/media/ae4fdc_768922642ba24dbe92e2d14dfd75d56a~mv2.jpg/v1/fit/w_1000,h_1780,q_82/first-space-press.jpg" alt="A member pressing a barbell overhead at First Space" loading="lazy" width="1000" height="1779"></figure>
+  </div>
+</section>
+
+<section class="promise">
+  <div class="wrap">
+    <blockquote>You won't be over sold, you won't be promised things we can't deliver on. <span>You will be treated with patience, care, professionalism and enthusiasm.</span></blockquote>
+    <p>We pride ourselves on our first class coaching, our community and being a safe inclusive place for all.</p>
+    <ul class="team">
+      <li>Level 4 strength and conditioning coaches<small>Years more experience and qualifications than your average personal trainer.</small></li>
+      <li>An in-house nutritionist<small>RSPH qualified. A six-week course is £279. It is not about restriction but balance.</small></li>
+      <li>An in-house physio<small>And sports massage, under the same roof.</small></li>
+    </ul>
+  </div>
+</section>
+
+<section class="try" id="try">
+  <div class="wrap grid">
+    <div>
+      <h2>Try everything for 21 days, then decide</h2>
+      <p class="lede">There is no pressure, no sales pitch, no lengthy boring interview about your goals. If it's not for you, that's cool also. We'll check in with you once.</p>
+      <ol>
+        <li>Fill in a quick form.</li>
+        <li>One of the team will be in touch within 24 hours to get you started.</li>
+        <li>Come to your first session. It is free.</li>
+        <li>Train as often as you like for 21 days.</li>
+      </ol>
+      <div class="cta">
+        <a class="btn" href="https://www.firstspacefitness.com/contact">Start my 21 Day Kickstart</a>
+        <a class="btn quiet" href="mailto:lee@firstspacefitness.com">Ask a question first</a>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h3>The 21 Day Kickstart</h3>
+        <p class="amt">£97<small>first session free</small></p>
+        <ul>
+          <li>21 days of unlimited group strength classes</li>
+          <li>A 1-2-1 nutrition consultation with an RSPH qualified nutritionist</li>
+          <li>A 1-2-1 strength goal setting session</li>
+        </ul>
+        <p class="small" style="margin:0">For new members. One Kickstart per person.</p>
+      </div>
+      <dl class="after">
+        <div><dt>Afterwards: First Space Athlete</dt><dd class="p">£127 a month</dd><dd class="d">Unlimited classes and open gym.</dd></div>
+        <div><dt>Athlete Plus</dt><dd class="p">£197 a month</dd><dd class="d">With small group personal training. A minimum term applies.</dd></div>
+        <div><dt>Personal training, 1-2-1</dt><dd class="p">£50 a session</dd><dd class="d">Or ten sessions for £450.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer id="find">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <h2>Still not sure? Ring us.</h2>
+        <a class="phone" href="tel:07496924986">07496 924986</a><br>
+        <a class="mail" href="mailto:lee@firstspacefitness.com">lee@firstspacefitness.com</a>
+      </div>
+      <div>
+        <h3>Where we are</h3>
+        <address>Unit 51, Winnington Industrial Estate<br>Northwich, Cheshire<br>CW8 4FT</address>
+      </div>
+      <div>
+        <h3>Opening times</h3>
+        <dl class="hours"><dt>Mon to Fri</dt><dd>6am to 8pm</dd><dt>Saturday</dt><dd>8am to 12pm</dd></dl>
+        <p style="margin-top:10px">Classes at 6am, 7am, 9.30am, 5pm, 6pm and 7pm on weekdays, and 9am on Saturday.</p>
+      </div>
+    </div>
+    <div class="base">
+      <span>First Space Fitness Ltd. Established 2023.</span>
+      <span><a href="https://www.instagram.com/FIRSTSPACEFITNESS">Instagram</a> · <a href="https://www.facebook.com/firstspacefitness">Facebook</a></span>
+      <span>Concept design by Pete Owen Design. Not the live First Space website.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
